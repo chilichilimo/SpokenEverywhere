@@ -292,6 +292,38 @@ body#afui .splt {
 .upage-outer.fixed-header-footer {
   position: static;
 }
+@media all {
+  .grid-pad {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media all and (min-width: 320px) {
+  .row-height-1 > .col > .content-area {
+    min-height: 100px;
+  }
+}
+.left-receptacle {
+  float: left;
+}
+.right-receptacle {
+  float: right;
+}
+[data-uib="media/text"] p:first-of-type {
+  margin-top: 0px;
+}
+.ellipsis {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+@media all {
+  .d-margins {
+    margin-bottom: 10px;
+  }
+}
 .uib-card {
   position: relative;
   margin: 0px;
@@ -597,19 +629,58 @@ body#afui .splt {
     width: auto !important;
   }
 }
+.uib-button-bar .d-margins {
+  margin: 0;
+}
 @media all {
-  .wrapping-col > .d-margins,
-  .wrapping-col > .afScrollPanel > .d-margins {
-    margin-left: 6px;
-    margin-right: 6px;
+  .default-button-bar-height {
+    min-height: 100px;
   }
-  .wrapping-col > .d-margins,
-  .wrapping-col > .afScrollPanel > .d-margins {
-    margin-left: 6px;
-    margin-right: 6px;
+}
+@media all {
+  .default-graphic-button {
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: grey;
+    background-color: #ffffff;
   }
-  .d-margins {
-    margin-top: 5px;
-    margin-bottom: 6px;
+}
+@media all {
+  .hover-graphic-button:hover {
+    border-radius: 5px;
+    background-color: #eeeeee;
+  }
+}
+@media all {
+  .active-graphic-button:active {
+    border-radius: 5px;
+    background-color: #dddddd;
+  }
+}
+@media all {
+  .default-graphic-text {
+    text-align: center;
+  }
+}
+@media all {
+  .default-graphic-sizing {
+    width: 150px !important;
+    -webkit-flex: 0 0 auto !important;
+    -moz-flex: 0 0 auto !important;
+    -ms-flex: 0 0 auto !important;
+    -o-flex: 0 0 auto !important;
+    flex: 0 0 auto !important;
+    padding: 5px;
+  }
+}
+@media all {
+  .default-image-sizing > img {
+    width: 50px;
+  }
+}
+@media all {
+  .button-size {
+    height: 50% !important;
   }
 }
