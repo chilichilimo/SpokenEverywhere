@@ -681,6 +681,6 @@ body#afui .splt {
 }
 @media all {
   .button-size {
-    height: 50% !important;
+    height: 50%  !important;
   }
 }
