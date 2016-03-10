@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="ionic/css/ionic.min.css">
+    <link rel="stylesheet" type="text/css" href="css/login_main.less.css" class="main-less">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
+    <script src="intelxdk.js"></script>
+    <script src="cordova.js"></script>
+    <script src="xhr.js"></script>
+    <script src="xdk/init-dev.js"></script>
+    <script type="application/javascript" src="ionic/js/ionic.bundle.js"></script>
+    <script type="application/javascript" src="js/login_init_services.js"></script>
+
+    <style>
+      span {
+            font-family:Perpetua Titling MT;
+            font-size: 10px;
+          color: #0000CD;
+          font-weight: bold;
+        }
+        button {
+            font-family:Perpetua Titling MT;
+
+        }
+
+    </style>
+  </head>
+
+  <body ng-app="myApp">
+
+    <div class="upage vertical-col left" id="mainpage">
+
+      <div class="widget uib_w_1 scale-image d-margins" data-uib="media/img" data-ver="0">
+        <figure class="figure-align">
+          <img src="Logo.jpg">
+        </figure>
+      </div>
+      <label class="item item-input widget uib_w_2 d-margins" data-uib="ionic/input" data-ver="0"><span class="input-label;" style;="">Username:</span>
+        <input type="text">
+      </label>
+      <label class="item item-input widget uib_w_3 d-margins" data-uib="ionic/input" data-ver="0"><span class="input-label;" style;="">Password:</span>
+        <input type="text">
+      </label>
+      <button class="button widget uib_w_5 d-margins" data-uib="ionic/button" data-ver="0">Login</button>
+
+      <button class="button widget uib_w_4 d-margins" data-uib="ionic/button" data-ver="0;">Forgotten your password?</button>
+    </div>
+  </body>
+
+</html>
