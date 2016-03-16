@@ -1,0 +1,18 @@
+.input-label {
+	font-family: avenir;
+	font-size: 20px;
+	color: #0000CD;
+}
+
+img {
+	margin-top: 60px;
+	width : 300px;
+	height: 130px;
+}
+
+.button1 {
+	background-color: #0000CD;
+	padding: 10px;
+	border: none;
+	color: white;
+}
