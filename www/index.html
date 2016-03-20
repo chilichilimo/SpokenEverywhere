@@ -84,19 +84,20 @@
                             <figcaption data-position="bottom"></figcaption>
                         </figure>
                     </div>
-                    <label class="item item-input widget uib_w_2 d-margins" data-uib="ionic/input" data-ver="0"><span class="input-label">Username:  </span>
+                    <label class="item item-input widget uib_w_2 d-margins" data-uib="ionic/input" data-ver="0" id="user"><span class="input-label">Username:  </span>
                         <input type="text">
                     </label>
-                    <label class="item item-input widget uib_w_3 d-margins" data-uib="ionic/input" data-ver="0"><span class="input-label">Password:  </span>
+                    <label class="item item-input widget uib_w_3 d-margins" data-uib="ionic/input" data-ver="0" id="password"><span class="input-label">Password:  </span>
                         <input type="text">
                     </label>
-                    <button id ="login" class="button widget uib_w_4 d-margins" data-uib="ionic/button" data-ver="0">Login</button>
-                    <button id = "signUp" class="button widget uib_w_5 d-margins" data-uib="ionic/button" data-ver="0">Don't have an account? Sign Up</button>
-                    <button id = "password" class="button widget uib_w_6 d-margins" data-uib="ionic/button" data-ver="0">Forgot your password?</button>
+                    <button id="login" class="button widget uib_w_4 d-margins" data-uib="ionic/button" data-ver="0" onclick="logingIn">Login</button>
+                    <button id="signUp" class="button widget uib_w_5 d-margins" data-uib="ionic/button" data-ver="0">Don't have an account? Sign Up</button>
+                    <button id="forgotPass" class="button widget uib_w_6 d-margins" data-uib="ionic/button" data-ver="0">Forgot your password?</button>
                 </div>
 
             </div>
         </div>
+        <div class="upage vertical-col left hidden" id="text"></div>
     </body>
 
 </html>
