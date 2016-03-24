@@ -27,6 +27,10 @@ angular.module('starter', ['ionic'])
 .config(function($stateProvider, $urlRouterProvider)
 {
   $stateProvider
+  .state('home', {
+    url: '/home',
+    templateUrl: 'home.html'
+  })
   .state('index', {
     url: '/index',
     templateUrl: 'index.html'
@@ -36,5 +40,5 @@ angular.module('starter', ['ionic'])
     templateUrl: 'text.html'
   })
 
-  $urlRouterProvider.otherwise('/index');
+  $urlRouterProvider.otherwise('/home');
 })
