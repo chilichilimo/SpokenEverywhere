@@ -1,94 +1,45 @@
-<!DOCTYPE html>
-<html>
-
-  <!-- <head>
-    <link rel="stylesheet" type="text/css" href="media_button_bar/css/media_button_bar.css">
-    <link rel="stylesheet" type="text/css" href="ionic/css/ionic.min.css">
-    <link rel="stylesheet" type="text/css" href="css/text_main.less.css" class="main-less">
-    <meta charset="UTF-8">
-    <title>Your Book</title>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-    <style>
-      /* following three (cascaded) are equivalent to above three meta viewport statements */
-        /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html */
-        /* see http://dev.w3.org/csswg/css-device-adapt/ */
-            @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
-            @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
-            /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
-    </style>
-    <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
-    <link rel="stylesheet" type="text/css" href="css/index/style.css">
-    <script src="intelxdk.js"></script>
-    <script src="cordova.js"></script>
-    <script src="xhr.js"></script>
-    <script src="xdk/init-dev.js"></script>
-    <script type="application/javascript" src="lib/jquery.min.js"></script>
-    <script type="application/javascript" src="marginal/marginal-position.js"></script>
-    <script type="application/javascript" src="ionic/js/ionic.bundle.js"></script>
-    <script type="application/javascript" src="js/text_init_services.js"></script>
-    <script type="application/javascript" src="js/text_user_scripts.js"></script>
-  </head> -->
-
-<ion-pane>
-  <!-- <body ng-app="myApp"> -->
-
-    <div class="upage" id="mainpage">
-      <div class="upage-outer fixed-header-footer">
-        <div class="upage-content ac0 content-area vertical-col left" id="page_23_66">
-
-          <div class="widget uib_w_2 widget-container content-area vertical-col uib-card cpad-0 d-margins section-dimension-2" data-uib="layout/card" data-ver="0">
-
-            <div class="tarea widget uib_w_3 d-margins" data-uib="media/text" data-ver="0" name="uib_w_3" id="mainText">
-              <div class="widget-container left-receptacle"></div>
-              <div class="widget-container right-receptacle"></div>
-              <div class="text-container">
-                <br><br><br>
-                <p>THE CATCHER IN THE RYE by J.D. Salinger</p>
-
-                <p>TO
-                  <br>MY MOTHER</p>
-
-                <p>1</p>
-
-                <p>If you really want to hear about it, the first thing you'll probably want to know is where I was born, an what my lousy childhood was like, and how my parents were occupied and all before they had me, and all that David Copperfield kind
-                  of crap, but I don't feel like going into it, if you want to know the truth. In the first place, that stuff bores me, and in the second place, my parents would have about two hemorrhages apiece if I told anything pretty personal about
-                  them. They're quite touchy about anything like that, especially my father. They're nice and all--I'm not saying that--but they're also touchy as hell. Besides, I'm not going to tell you my whole goddam autobiography or anything. I'll
-                  just tell you about this madman stuff that happened to me around last Christmas just before I got pretty run-down and had to come out here and take it easy. I mean that's all I told D.B. about, and he's my brother and all. He's in Hollywood.
-                  That isn't too far from this crumby place, and he comes over and visits me practically every week end. He's going to drive me home when I go home next month maybe. He just got a Jaguar. One of those little English jobs that can do around
-                  two hundred miles an hour. It cost him damn near four thousand bucks. He's got a lot of dough, now. He didn't use to. He used to be just a regular writer, when he was home. He wrote this terrific book of short stories, The Secret Goldfish,
-                  in case you never heard of him. The best one in it was "The Secret Goldfish." It was about this little kid that wouldn't let anybody look at his goldfish because he'd bought it with his own money. It killed me. Now he's out in Hollywood,
-                  D.B., being a prostitute. If there's one thing I hate, it's the movies. Don't even mention them to me.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <ion-header-bar class="bar inner-element uib_w_1 bar-positive bar-header" data-uib="ionic/header" data-ver="0">
-          <div class="buttons widget-container content-area horiz-area wrapping-col"></div>
-          <h1 class="title">THE CATCHER IN THE RYE</h1>
-          <div class="buttons widget-container content-area horiz-area wrapping-col"></div>
-        </ion-header-bar>
-        <ion-footer-bar class="bar inner-element uib_w_8 bar-positive bar-footer" data-uib="ionic/footer" data-ver="0">
-          <div class="buttons widget-container content-area horiz-area wrapping-col">
-            <a class="uib-graphic-button default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_5 default-graphic-sizing button-size media-button-text-bottom" data-uib="media/graphic_button" data-ver="0"
-            id="play">
-              <img src="images/Checkmark.png">
-              <span class="uib-caption">Play</span>
-            </a>
-          </div>
-          <h1 class="title"></h1>
-          <div class="buttons widget-container content-area horiz-area wrapping-col">
-            <a class="uib-graphic-button default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_7 button-size default-graphic-sizing media-button-text-bottom" data-uib="media/graphic_button" data-ver="0"
-            id="save">
-              <img src="images/Arrow.png">
-              <span class="uib-caption">Save</span>
-            </a>
-          </div>
-        </ion-footer-bar>
-      </div>
+<ion-view>
+  <ion-header-bar class="bar-stable bar-royal">
+      <h1 class="title">THE CATCHER IN THE RYE</h1>
+  </ion-header-bar>
+  <div class="bar bar-subheader">
+    <div class="button-bar">
+      <a class="button icon ion-play"></a>
+      <a class="button icon ion-ios-download"></a>
     </div>
-</ion-pane>
-  <!-- </body> -->
-
-</html>
+  </div>
+  <br><br><br><br>
+  <div class="list" style="height=30px">
+    <ion-scroll zooming="true" direction="y" style="height: 500px">
+      <div class="item item-body">
+        <h4 class="header">Author: J.D. Salinger</h4>
+        <p style="text-align: justify">
+          If you really want to hear about it, the first thing you'll probably want to know is where I was born, an what my lousy childhood was like, and how my parents were occupied and all before they had me, and all that David Copperfield kind
+            of crap, but I don't feel like going into it, if you want to know the truth. In the first place, that stuff bores me, and in the second place, my parents would have about two hemorrhages apiece if I told anything pretty personal about
+            them. They're quite touchy about anything like that, especially my father. They're nice and all--I'm not saying that--but they're also touchy as hell. Besides, I'm not going to tell you my whole goddam autobiography or anything. I'll
+            just tell you about this madman stuff that happened to me around last Christmas just before I got pretty run-down and had to come out here and take it easy. I mean that's all I told D.B. about, and he's my brother and all. He's in Hollywood.
+            That isn't too far from this crumby place, and he comes over and visits me practically every week end. He's going to drive me home when I go home next month maybe. He just got a Jaguar. One of those little English jobs that can do around
+            two hundred miles an hour. It cost him damn near four thousand bucks. He's got a lot of dough, now. He didn't use to. He used to be just a regular writer, when he was home. He wrote this terrific book of short stories, The Secret Goldfish,
+            in case you never heard of him. The best one in it was "The Secret Goldfish." It was about this little kid that wouldn't let anybody look at his goldfish because he'd bought it with his own money. It killed me. Now he's out in Hollywood,
+            D.B., being a prostitute. If there's one thing I hate, it's the movies. Don't even mention them to me.
+        </p>
+      </div>
+    </ion-scroll>
+  </div>
+  <div class="bar bar-footer">
+    <div class="tabs tabs-icon-top">
+  <a class="tab-item">
+    <i class="icon ion-home"></i>
+    Home
+  </a>
+  <a class="tab-item">
+    <i class="icon ion-star"></i>
+    Favorites
+  </a>
+  <a class="tab-item">
+    <i class="icon ion-gear-a"></i>
+    Settings
+  </a>
+</div>
+  </div>
+</ion-view>

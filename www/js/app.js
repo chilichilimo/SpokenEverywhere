@@ -39,6 +39,17 @@ angular.module('starter', ['ionic'])
     url: '/text',
     templateUrl: 'text.html'
   })
-
+  .state('signup', {
+    url: '/signup',
+    templateUrl: 'signup.html'
+  })
+  .state('welcome', {
+    url: '/welcome',
+    templateUrl: 'welcome.html'
+  })
+  .state('mainhome', {
+    url: '/mainhome',
+    templateUrl: 'mainhome.html'
+  })
   $urlRouterProvider.otherwise('/home');
 })
