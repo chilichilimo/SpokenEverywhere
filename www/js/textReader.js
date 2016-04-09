@@ -66,53 +66,49 @@
 //     console.log(voices);
 // });
 
-// for (var i = 0; i < 500; i++)
-// {
-//   var temp = mainTextArray[i].innerHTML.split(".");
-//   for (var j = 0; j < temp.length; j++)
-//   {
-//     mainTextArray.push(temp[j]);
-//   }
-// }
-
-
 var mainTextArray;
 var bookmark = 0;
 
-
-
-
 $(document).ready(function(){
 
-    // var foo = "Hello it's me I was wondering if after all these years you'd like to meet";
-    // var arr = foo.split(" ");
-    // for (var i = 0; i < arr.length; i++) {
-    //   console.log(arr[i]);
-    // }
+    var textString = $("#mainTextBook").text();
+    var sentenceTokens = textString.split(".");
 
     $("#playButtonInText").click(function(){
-        if ($("#playButtonInText").hasClass("ion-stop")) {
-          $("#playButtonInText").attr("class", "button icon ion-play");
-        }
-        else {
-            $("#playButtonInText").attr("class", "button icon ion-stop");
-        }
+      if ($("#playButtonInText").hasClass("ion-stop")) {
+        $("#playButtonInText").attr("class", "button icon ion-play");
+      }
+      else {
+          $("#playButtonInText").attr("class", "button icon ion-stop");
+      }
     });
     setInterval(function(){
       if ($("#playButtonInText").hasClass("ion-stop")) {
-        console.log($("#mainTextBook").text());
-        // var temp = $("#mainTextBook").text().split(" ");
-        // console.log(temp[0]);
-        // console.log(temp[1]);
-        // console.log(temp[2]);
-        // console.log(temp[3]);
-        // console.log("HELLLOO");
+        // var textFirstPart = "";
+        // var textSecondPart = "";
+        // for (var i = 0; i < bookmark; i++) {
+        //   textFirstPart = textFirstPart + sentenceTokens[i];
+        // }
+        // for (var i = bookmark+1; i < sentenceTokens.length; i++) {
+        //   textSecondPart = textSecondPart + sentenceTokens[i];
+        // }
+        // console.log(textFirstPart);
+        // console.log(textSecondPart);
+        // var result = textFirstPart + "<span style=\"background-color:yellow\">" + sentenceTokens[bookmark] + "</span>" + textSecondPart;
+        // $("#mainTextBook").html(result);
+        // bookmark = bookmark+1;
+        var yourstring = sentenceTokens[bookmark];
+
+        $('p:contains('+yourstring+')', document.body).each(function(){
+          console.log(bookmark);
+          $(this).html($(this).html().replace(
+            new RegExp(yourstring, 'g'), '<span style=\"background-color: yellow\">'+ yourstring +'</span>'
+          ));
+        });
       }
-    },1000);
+      //bookmark = bookmark+1;
+    },2000);
 
 });
-
-
-
 //  [string] text - the text to be spoken
 //  [object] config (optional) - override Ivona request via 'body' value
