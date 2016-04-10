@@ -51,5 +51,9 @@ angular.module('starter', ['ionic'])
     url: '/mainhome',
     templateUrl: 'mainhome.html'
   })
+  .state('settings', {
+    url: '/settings',
+    templateUrl: 'settings.html'
+  })
   $urlRouterProvider.otherwise('/home');
 })
