@@ -1,0 +1,55 @@
+<ion-view>
+  <ion-header-bar class="bar-stable bar-royal">
+    <figure>
+      <img id = "headImg" src = "img/LogoHead.png">
+    </figure>
+  </ion-header-bar>
+  <div>
+    <h1 class = "big" align = "middle">Settings</h1>
+    <h1 class = "headers" align = "left">Profile</h1>
+      <p class ="subheaders" align = "middle">E-mail</p><p class = "setText"></p>
+
+      <button id = "small"class = "button button-clear button-small button-royal"> Change E-mail</button>
+      <p class="subheaders" align = "middle">Password</p><p class = "setText"></p>
+      <button id = "small"class = "button button-clear button-small button-royal"> Change Password </button>
+
+
+      <ul class="list">
+        <li id = "Bluetooth" class="item item-toggle">
+          Bluetooth
+        <label class="toggle toggle-royal">
+          <input type="checkbox">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+        </li>
+      </ul>
+
+      <h1 class = "headers" align = "left"> Font Size </h1>
+      <form>
+      <div class="font item range range-energized">
+    	   <span class="smallA">A</span>
+    		   <input id="range" type="range" min="10" max="30">
+    			    <span class="bigA">A</span>
+      </div>
+    </form>
+
+        <button id = "logout" class = "icon ion-log-out button button-clear ">Logout</button>
+  </div>
+
+  <div class="tabs tabs-icon-top tabs-royal">
+    <a class="tab-item">
+      <i class="icon ion-home"></i>
+      Home
+    </a>
+    <a class="tab-item">
+      <i class="icon ion-heart"></i>
+      Favorites
+    </a>
+    <a class="tab-item">
+      <i class="icon ion-gear-a"></i>
+      Settings
+    </a>
+  </div>
+</ion-view>

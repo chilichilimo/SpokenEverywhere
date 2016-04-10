@@ -1,24 +1,28 @@
-<ion-view>
+<ion-view hide-nav-bar = "true">
   <div class="upage" id="mainpage">
       <div class="upage-outer fixed-header-footer">
           <div class="upage-content ac0 content-area vertical-col left" id="page_85_62">
 
               <div class="widget uib_w_1 scale-image d-margins" data-uib="media/img" data-ver="0">
                   <figure class="figure-align" align = "middle">
-                      <img src="img/Logo.png">
+                      <img src="img/Logo3.png">
                       <figcaption data-position="center"></figcaption>
                   </figure>
                   <br><br><br>
-              </div>
-              <div class="list list-inset">
-                <label class="item item-input">
-                  <input type="text" placeholder="Username">
-                </label>
-                <label class="item item-input">
-                  <input type="password" placeholder="Password">
-                </label>
-              </div>
-              <div class="wrapper">
+                  <form>
+                  <div class="list list-inset">
+                    <label class="item item-input">
+                      <span class="input-label">E-mail</span>
+                        <input type="text">
+                    </label>
+
+                    <label class="item item-input">
+                      <span class="input-label">Password</span>
+                        <input type="password">
+                    </label>
+                  </div>
+                </form>
+              <div align = "middle">
                 <button id="loginButton" class="button button-royal" align = "middle" ui-sref="mainhome">
                   Login
                 </button>
