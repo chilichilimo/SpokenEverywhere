@@ -3,8 +3,12 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
 
+var app = angular.module('myApp',['ionic']).config(['$controllerProvider', function($controllerProvider) {
+  $controllerProvider.allowGlobals();
+}]);
+
+angular.module('starter', ['ionic'])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -22,7 +26,6 @@ angular.module('starter', ['ionic'])
     }
   });
 })
-
 
 .config(function($stateProvider, $urlRouterProvider)
 {
@@ -57,3 +60,61 @@ angular.module('starter', ['ionic'])
   })
   $urlRouterProvider.otherwise('/home');
 })
+
+var users = new Firebase('https://spoken-everywhere.firebaseio.com/users');
+
+$(document).ready(function(){
+  $("#signUpFormButton").click(function(){
+    var signupFirstName = $("#newFirstName").val();
+    var signupLastName = $("#newLastName").val();
+    var signupAge = $("#newAge").val();
+    var signupEmail = $("#newEmail").val();
+    var signupPassword = $("#newPassword").val();
+    var signupConfirmPassword = $("#newConfirmPassword").val();
+    if (signupPassword === signupConfirmPassword) {
+      users.push().set({
+            email: signupEmail,
+            firstname: signupFirstName,
+            surname: signupLastName,
+            age: signupAge,
+            password: signupPassword
+      });
+      console.log("I'm out");
+      app.controller('welcome', function($scope, $location){
+        console.log("I'm in now!");
+            $location.path('/welcome');
+      });
+    }
+    else {
+      alert("Passwords are not the same! Please try again.");
+    }
+  })
+});
+
+
+// users.push().set({
+//       email: "afshar.m.95@gmail.com",
+//       firstname: "Maya",
+//       surname: "Afshar",
+//       age: 20
+// });
+// users.push().set({
+//     email: "voila@whatever.com",
+//     firstname: "voila",
+//     surname: "whatever",
+//     age: 24
+// });
+
+// users.on("value", function(snapshot) {
+//   console.log(snapshot.val());
+// }, function (errorObject) {
+//   console.log("The read failed: " + errorObject.code);
+// });
+
+// users.set("I'm writing data", function(error) {
+//   if (error) {
+//     alert("Data could not be saved." + error);
+//   } else {
+//     alert("Data saved successfully.");
+//   }
+// });

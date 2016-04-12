@@ -1,42 +1,50 @@
-<ion-header-bar class="bar-stable bar-royal">
-  <button class="button button-icon icon ion-chevron-left button-clear" ui-sref="home"></button>
-  <figure>
-    <img id = "headImg" src = "img/LogoHead.png">
-  </figure>
-  <button class="button button-clear button-royal">Edit</button>
-</ion-header-bar>
-<div align = "middle">
-  <p id = "text">Welcome to Spoken Everywhere! Please fill in your details below...</p>
-</div>
-<div class="list">
-  <label class="item item-input item-stacked-label">
-    <span class="input-label">First Name</span>
-    <input type="text" placeholder="John">
-  </label>
-  <label class="item item-input item-stacked-label">
-    <span class="input-label">Last Name</span>
-    <input type="text" placeholder="Smith">
-  </label>
-  <label class="item item-input item-stacked-label">
-    <span class="input-label">Age</span>
-    <input type="text" placeholder="18">
-  </label>
-  <label class="item item-input item-stacked-label">
-    <span class="input-label">Email</span>
-    <input type="text" placeholder="john@smith.com">
-  </label>
-  <label class="item item-input item-stacked-label">
-    <span class="input-label">Password</span>
-    <input type="password">
-  </label>
-  <label class="item item-input item-stacked-label">
-    <span class="input-label">Confirm Password</span>
-    <input type="password">
-  </label>
+<html>
+<head>
+  <script src="lib/jQuery/jquery-2.2.3.min.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+</head>
+<body>
+  <ion-header-bar class="bar-stable bar-royal">
+    <button class="button button-icon icon ion-chevron-left button-clear" ui-sref="home"></button>
+    <figure>
+      <img id = "headImg" src = "img/LogoHead.png">
+    </figure>
+    <button class="button button-clear button-royal">Edit</button>
+  </ion-header-bar>
   <div align = "middle">
-    <br><br>
-    <button id="signUpFormButton" class="button button-royal" align = "middle" ui-sref="welcome">
-      Sign Up
-    </button>
+    <p id = "text">Welcome to Spoken Everywhere! Please fill in your details below...</p>
   </div>
-</div>
+  <div class="list">
+    <label class="item item-input item-stacked-label">
+      <span class="input-label">First Name</span>
+      <input id="newFirstName" type="text" placeholder="John">
+    </label>
+    <label class="item item-input item-stacked-label">
+      <span class="input-label">Last Name</span>
+      <input id="newLastName" type="text" placeholder="Smith">
+    </label>
+    <label class="item item-input item-stacked-label">
+      <span class="input-label">Age</span>
+      <input id="newAge" type="text" placeholder="18">
+    </label>
+    <label class="item item-input item-stacked-label">
+      <span class="input-label">Email</span>
+      <input id="newEmail" type="text" placeholder="john@smith.com">
+    </label>
+    <label class="item item-input item-stacked-label">
+      <span class="input-label">Password</span>
+      <input id="newPassword" type="password">
+    </label>
+    <label class="item item-input item-stacked-label">
+      <span class="input-label">Confirm Password</span>
+      <input id="newConfirmPassword" type="password">
+    </label>
+    <div align = "middle">
+      <br><br>
+      <button id="signUpFormButton" class="button button-royal" align = "middle">
+        Sign Up
+      </button>
+    </div>
+  </div>
+</body>
+</html>
