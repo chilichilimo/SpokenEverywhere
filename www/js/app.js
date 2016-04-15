@@ -79,11 +79,12 @@ $(document).ready(function(){
             age: signupAge,
             password: signupPassword
       });
-      console.log("I'm out");
-      app.controller('welcome', function($scope, $location){
+      //console.log("I'm out");
+      //window.location = "welcome.html";
+      app.controller('welcome',[$scope, $location, function($scope, $location){
         console.log("I'm in now!");
-            $location.path('/welcome');
-      });
+        $location.path('/welcome');
+      }]);
     }
     else {
       alert("Passwords are not the same! Please try again.");

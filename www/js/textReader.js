@@ -44,6 +44,7 @@ function Sound(source,volume,loop)
 
 var mainTextArray;
 var bookmark = 0;
+var audio = new Audio('sound/VivaLaVida.mp3');
 
 $(document).ready(function(){
 
@@ -53,9 +54,11 @@ $(document).ready(function(){
     $("#playButtonInText").click(function(){
       if ($("#playButtonInText").hasClass("ion-stop")) {
         $("#playButtonInText").attr("class", "button icon ion-play");
+        audio.play();
       }
       else {
           $("#playButtonInText").attr("class", "button icon ion-stop");
+          audio.stop();
       }
     });
 
@@ -79,4 +82,6 @@ $(document).ready(function(){
         bookmark = bookmark+1;
       }
     },2000);
+
+
 });
