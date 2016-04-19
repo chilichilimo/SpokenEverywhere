@@ -8,6 +8,8 @@ var app = angular.module('myApp',['ionic']).config(['$controllerProvider', funct
   $controllerProvider.allowGlobals();
 }]);
 
+// var myAppApp = angular.module('myAppApp',[])
+
 angular.module('starter', ['ionic'])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -60,10 +62,21 @@ angular.module('starter', ['ionic'])
   })
   $urlRouterProvider.otherwise('/home');
 })
+.controller('welcome',[$scope, $location, function($scope, $location){
+  console.log("I'm in now!");
+}]);
 
 var users = new Firebase('https://spoken-everywhere.firebaseio.com/users');
+var books = new Firebase('https://se-books.firebaseio.com/books/0');
+
+// app.controller('MyController', function($scope){
+//   $scope.user = {
+//     'firstname':"Maya"
+//   }
+// });
 
 $(document).ready(function(){
+
   $("#signUpFormButton").click(function(){
     var signupFirstName = $("#newFirstName").val();
     var signupLastName = $("#newLastName").val();
@@ -81,10 +94,9 @@ $(document).ready(function(){
       });
       //console.log("I'm out");
       //window.location = "welcome.html";
-      app.controller('welcome',[$scope, $location, function($scope, $location){
-        console.log("I'm in now!");
-        $location.path('/welcome');
-      }]);
+
+      $location.path('/welcome');
+      $(location).attr('href', 'welcome.html');
     }
     else {
       alert("Passwords are not the same! Please try again.");
