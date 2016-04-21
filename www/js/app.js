@@ -62,9 +62,10 @@ angular.module('starter', ['ionic'])
   })
   $urlRouterProvider.otherwise('/home');
 })
-.controller('welcome',[$scope, $location, function($scope, $location){
-  console.log("I'm in now!");
-}]);
+
+// .controller('welcome',[$scope, $location, function($scope, $location){
+//   console.log("I'm in now!");
+// }]);
 
 var users = new Firebase('https://spoken-everywhere.firebaseio.com/users');
 var books = new Firebase('https://se-books.firebaseio.com/books/0');
@@ -85,17 +86,28 @@ $(document).ready(function(){
     var signupPassword = $("#newPassword").val();
     var signupConfirmPassword = $("#newConfirmPassword").val();
     if (signupPassword === signupConfirmPassword) {
-      users.push().set({
-            email: signupEmail,
-            firstname: signupFirstName,
-            surname: signupLastName,
-            age: signupAge,
-            password: signupPassword
+    users.createUser({
+          email: signupEmail,
+          password: signupPassword,
+          // firstname: signupFirstName,
+          // surname: signupLastName,
+          // age: signupAge
+      }, function(error, userData){
+        if (error) {
+          console.log("Error creating user:", error);
+        }
+        else {
+          console.log("Successfully created user account with uid:", userData.uid);
+        }
       });
       //console.log("I'm out");
       //window.location = "welcome.html";
-
-      $location.path('/welcome');
+      newUser.child('email').on("value", function(snapshot) {
+          console.log(snapshot.val());
+      }, function (errorObject) {
+      console.log("The read failed: " + errorObject.code);
+      });
+      //$location.path('/welcome');
       $(location).attr('href', 'welcome.html');
     }
     else {
