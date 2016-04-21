@@ -1,3 +1,4 @@
+
 <ion-view hide-nav-bar = "true">
   <div class="upage" id="mainpage">
       <div class="upage-outer fixed-header-footer">
@@ -12,25 +13,24 @@
                   <form>
                   <div class="list list-inset">
                     <label class="item item-input">
-                      <span class="input-label">E-mail</span>
-                        <input type="text">
+                      <span id="userEmail" class="input-label">E-mail</span>
+                        <input type="text" ng-model="loginEmail">
                     </label>
 
                     <label class="item item-input">
-                      <span class="input-label">Password</span>
-                        <input type="password">
+                      <span id="userPassword" class="input-label">Password</span>
+                        <input type="password" ng-model="loginPassword">
                     </label>
                   </div>
                 </form>
               <div align = "middle">
-                <button id="loginButton" class="button button-royal" align = "middle" ui-sref="mainhome">
+                <button id="loginButton" class="button button-royal" align = "middle" ng-click="login()">
                   Login
                 </button>
                 <br><br>
                 <p id="signUpButtonText">Don't have an account? <a id="signUpButton" ui-sref="signup">SignUp</a></p>
                 <p><a href="#" id="forgotPassButton">Forgot your password?</a></p>
-                <!-- <button id="signUpButton" class="button widget uib_w_5 d-margins" data-uib="ionic/button" data-ver="0" ng-click="signUp()" ui-sref="signup">Don't have an account? Sign Up</button> -->
-                <!-- <button id="forgotPassButton" class="button widget uib_w_5 d-margins" data-uib="ionic/button" data-ver="0">Forgot your password?</button> -->
+
               </div>
           </div>
       </div>

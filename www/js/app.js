@@ -8,6 +8,19 @@ var app = angular.module('myApp',['ionic']).config(['$controllerProvider', funct
   $controllerProvider.allowGlobals();
 }]);
 
+// var firebase = null;
+// angular
+//   .module('app', [
+//     'ngAnimate',
+//     'ngCookies',
+//     'ngResource',
+//     'ngRoute',
+//     'ngSanitize',
+//     'ngTouch',
+// 		'firebase',
+// 		'ui.bootstrap'
+//   ])
+
 // var myAppApp = angular.module('myAppApp',[])
 
 angular.module('starter', ['ionic'])
@@ -27,6 +40,7 @@ angular.module('starter', ['ionic'])
       StatusBar.styleDefault();
     }
   });
+  var usersRef = new Firebase("https://spoken-everywhere.firebaseio.com/users/");
 })
 
 .config(function($stateProvider, $urlRouterProvider)
@@ -34,7 +48,8 @@ angular.module('starter', ['ionic'])
   $stateProvider
   .state('home', {
     url: '/home',
-    templateUrl: 'home.html'
+    templateUrl: 'home.html',
+    controller: 'LoginCtrl'
   })
   .state('index', {
     url: '/index',
@@ -46,7 +61,8 @@ angular.module('starter', ['ionic'])
   })
   .state('signup', {
     url: '/signup',
-    templateUrl: 'signup.html'
+    templateUrl: 'signup.html',
+    controller: 'SignUp'
   })
   .state('welcome', {
     url: '/welcome',
@@ -63,83 +79,173 @@ angular.module('starter', ['ionic'])
   $urlRouterProvider.otherwise('/home');
 })
 
+// .config(function ($routeProvider) {
+//   $routeProvider
+//     // .when('/', {
+//     //   templateUrl: 'home.html'
+//     //   // controller: 'LoginCtrl',
+//     //   // controllerAs: 'login'
+//     // })
+//     .when('/home', {
+//       templateUrl: 'home.html'
+//       // controller: 'HomeCtrl'
+//       // controllerAs: 'home'
+//     })
+//     .when('/index', {
+//       templateUrl: 'index.html'
+//       // controller: 'HomeCtrl'
+//     })
+//     .when('/text', {
+//       templateUrl: 'text.html'
+//       // controller: 'HomeCtrl'
+//     })
+//     .when('/signup', {
+//       templateUrl: 'signup.html'
+//       // controller: 'SignUp'
+//     })
+//     .when('/welcome', {
+//       templateUrl: 'welcome.html'
+//       // controller: 'HomeCtrl'
+//     })
+//     .when('/mainhome', {
+//       templateUrl: 'mainhome.html'
+//       // controller: 'HomeCtrl'
+//     })
+//     .when('settings', {
+//       templateUrl: 'settings.html'
+//       // controller: 'HomeCtrl'
+//     })
+//     .otherwise({
+//       redirectTo: '/'
+//     });
+// })
+
+.controller('SignUp', function($scope ,$location){
+  $scope.signup = function(){
+    console.log("Hello");
+      signupEmail = $scope.email;
+      signupPassword = $scope.password;
+      signupFirstName = $scope.firstname;
+      signupLastName = $scope.lastname;
+      signupAge = $scope.age;
+      console.log(signupFirstName);
+      usersRef.createUser({
+        email: signupEmail,
+        password: signupPassword
+      }, function(error, userData){
+        if (error) {
+          console.log("Error creating user:", error);
+          alert(error);
+        }
+        else {
+          console.log("Successfully created user account with uid:", userData.uid);
+          var uid = userData.uid;
+          var newUserRef = new Firebase("https://spoken-everywhere.firebaseio.com/users/" + uid);
+          console.log("https://spoken-everywhere.firebaseio.com/users/" + uid);
+          newUserRef.set({
+            firstname: signupFirstName,
+            surname: signupLastName,
+            age: signupAge
+          });
+        }
+        //$(location).attr('href', 'welcome.html');
+      });
+      $location.path("/welcome");
+  }
+})
+
+.controller('LoginCtrl', function($location, $scope) {
+	$scope.login = function() {
+    var givenEmail = $scope.loginEmail;
+    var givenPassword = $scope.loginPassword;
+    console.log(givenEmail);
+    ref.authWithPassword({
+      email    : givenEmail,
+      password : givenPassword
+    }, function(error, authData) {
+      if (error) {
+        console.log("Login Failed!", error);
+      } else {
+        console.log("Authenticated successfully with payload:", authData);
+        $location.path("/mainhome");
+      }
+    });
+	};
+})
+
+
 // .controller('welcome',[$scope, $location, function($scope, $location){
 //   console.log("I'm in now!");
 // }]);
 
-var users = new Firebase('https://spoken-everywhere.firebaseio.com/users');
-var books = new Firebase('https://se-books.firebaseio.com/books/0');
+
+//var books = new Firebase('https://se-books.firebaseio.com/books/0');
 
 // app.controller('MyController', function($scope){
 //   $scope.user = {
 //     'firstname':"Maya"
 //   }
 // });
+var usersRef = new Firebase("https://spoken-everywhere.firebaseio.com/users");
+var ref = new Firebase("https://spoken-everywhere.firebaseio.com/");
 
-$(document).ready(function(){
+  //$(document).ready(function(){
+  // $("#signUpFormButton").click(function(){
+  //   var signupFirstName = $("#newFirstName").val();
+  //   var signupLastName = $("#newLastName").val();
+  //   var signupAge = $("#newAge").val();
+  //   var signupEmail = $("#newEmail").val();
+  //   var signupPassword = $("#newPassword").val();
+  //   var signupConfirmPassword = $("#newConfirmPassword").val();
+  //   if (signupPassword === signupConfirmPassword) {
+  //   usersRef.createUser({
+  //         email: signupEmail,
+  //         password: signupPassword
+  //     }, function(error, userData){
+  //       if (error) {
+  //         console.log("Error creating user:", error);
+  //         alert(error);
+  //       }
+  //       else {
+  //         console.log("Successfully created user account with uid:", userData.uid);
+  //         var uid = userData.uid;
+  //         var newUserRef = new Firebase("https://spoken-everywhere.firebaseio.com/users/" + uid);
+  //         console.log("https://spoken-everywhere.firebaseio.com/users/" + uid);
+  //         newUserRef.set({
+  //           firstname: signupFirstName,
+  //           surname: signupLastName,
+  //           age: signupAge
+  //         });
+  //       }
+  //         $(location).attr('href', 'welcome.html');
+  //     });
+  //     //window.location = "welcome.html";
+  //     // newUser.child('email').on("value", function(snapshot) {
+  //     //     console.log(snapshot.val());
+  //     // }, function (errorObject) {
+  //     // console.log("The read failed: " + errorObject.code);
+  //     // });
+  //     //$location.path('/welcome');
+  //
+  //   }
+  //   else {
+  //     alert("Passwords are not the same! Please try again.");
+  //   }
+  // });
 
-  $("#signUpFormButton").click(function(){
-    var signupFirstName = $("#newFirstName").val();
-    var signupLastName = $("#newLastName").val();
-    var signupAge = $("#newAge").val();
-    var signupEmail = $("#newEmail").val();
-    var signupPassword = $("#newPassword").val();
-    var signupConfirmPassword = $("#newConfirmPassword").val();
-    if (signupPassword === signupConfirmPassword) {
-    users.createUser({
-          email: signupEmail,
-          password: signupPassword,
-          // firstname: signupFirstName,
-          // surname: signupLastName,
-          // age: signupAge
-      }, function(error, userData){
-        if (error) {
-          console.log("Error creating user:", error);
-        }
-        else {
-          console.log("Successfully created user account with uid:", userData.uid);
-        }
-      });
-      //console.log("I'm out");
-      //window.location = "welcome.html";
-      newUser.child('email').on("value", function(snapshot) {
-          console.log(snapshot.val());
-      }, function (errorObject) {
-      console.log("The read failed: " + errorObject.code);
-      });
-      //$location.path('/welcome');
-      $(location).attr('href', 'welcome.html');
-    }
-    else {
-      alert("Passwords are not the same! Please try again.");
-    }
-  })
-});
-
-
-// users.push().set({
-//       email: "afshar.m.95@gmail.com",
-//       firstname: "Maya",
-//       surname: "Afshar",
-//       age: 20
-// });
-// users.push().set({
-//     email: "voila@whatever.com",
-//     firstname: "voila",
-//     surname: "whatever",
-//     age: 24
-// });
-
-// users.on("value", function(snapshot) {
-//   console.log(snapshot.val());
-// }, function (errorObject) {
-//   console.log("The read failed: " + errorObject.code);
-// });
-
-// users.set("I'm writing data", function(error) {
-//   if (error) {
-//     alert("Data could not be saved." + error);
-//   } else {
-//     alert("Data saved successfully.");
-//   }
-// });
+  // $("#loginButton").click(function(){
+  //   console.log("imIn!");
+  //   var loginEmail = $("#userEmail").val();
+  //   var loginPassword = $("#userPassword").val();
+  //   ref.authWithPassword({
+  //     email    : "afshar.m.95@gmail.com",
+  //     password : "hello123"
+  //   }, function(error, authData) {
+  //     if (error) {
+  //   console.log("Login Failed!", error);
+  //   } else {
+  //   console.log("Authenticated successfully with payload:", authData);
+  //   }
+  //   });
+  // });
+  //});

@@ -17,31 +17,31 @@
   <div class="list">
     <label class="item item-input item-stacked-label">
       <span class="input-label">First Name</span>
-      <input id="newFirstName" type="text" placeholder="John">
+      <input id="newFirstName" type="text" placeholder="John" ng-model="firstname">
     </label>
     <label class="item item-input item-stacked-label">
       <span class="input-label">Last Name</span>
-      <input id="newLastName" type="text" placeholder="Smith">
+      <input id="newLastName" type="text" placeholder="Smith" ng-model="lastname">
     </label>
     <label class="item item-input item-stacked-label">
       <span class="input-label">Age</span>
-      <input id="newAge" type="text" placeholder="18">
+      <input id="newAge" type="text" placeholder="18" ng-model="age">
     </label>
     <label class="item item-input item-stacked-label">
       <span class="input-label">Email</span>
-      <input id="newEmail" type="text" placeholder="john@smith.com">
+      <input id="newEmail" type="text" placeholder="john@smith.com" ng-model="email">
     </label>
     <label class="item item-input item-stacked-label">
-      <span class="input-label">Password</span>
-      <input id="newPassword" type="password">
+      <span class="input-label" ng-scope="password">Password</span>
+      <input id="newPassword" type="password" ng-model="password">
     </label>
-    <label class="item item-input item-stacked-label">
+    <!-- <label class="item item-input item-stacked-label">
       <span class="input-label">Confirm Password</span>
       <input id="newConfirmPassword" type="password">
-    </label>
+    </label> -->
     <div align = "middle">
       <br><br>
-      <button id="signUpFormButton" class="button button-royal" align = "middle">
+      <button id="signUpFormButton" class="button button-royal" align = "middle" ng-click="signup()">
         Sign Up
       </button>
     </div>
