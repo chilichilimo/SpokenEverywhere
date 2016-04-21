@@ -8,21 +8,6 @@ var app = angular.module('myApp',['ionic']).config(['$controllerProvider', funct
   $controllerProvider.allowGlobals();
 }]);
 
-// var firebase = null;
-// angular
-//   .module('app', [
-//     'ngAnimate',
-//     'ngCookies',
-//     'ngResource',
-//     'ngRoute',
-//     'ngSanitize',
-//     'ngTouch',
-// 		'firebase',
-// 		'ui.bootstrap'
-//   ])
-
-// var myAppApp = angular.module('myAppApp',[])
-
 angular.module('starter', ['ionic'])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -79,47 +64,6 @@ angular.module('starter', ['ionic'])
   $urlRouterProvider.otherwise('/home');
 })
 
-// .config(function ($routeProvider) {
-//   $routeProvider
-//     // .when('/', {
-//     //   templateUrl: 'home.html'
-//     //   // controller: 'LoginCtrl',
-//     //   // controllerAs: 'login'
-//     // })
-//     .when('/home', {
-//       templateUrl: 'home.html'
-//       // controller: 'HomeCtrl'
-//       // controllerAs: 'home'
-//     })
-//     .when('/index', {
-//       templateUrl: 'index.html'
-//       // controller: 'HomeCtrl'
-//     })
-//     .when('/text', {
-//       templateUrl: 'text.html'
-//       // controller: 'HomeCtrl'
-//     })
-//     .when('/signup', {
-//       templateUrl: 'signup.html'
-//       // controller: 'SignUp'
-//     })
-//     .when('/welcome', {
-//       templateUrl: 'welcome.html'
-//       // controller: 'HomeCtrl'
-//     })
-//     .when('/mainhome', {
-//       templateUrl: 'mainhome.html'
-//       // controller: 'HomeCtrl'
-//     })
-//     .when('settings', {
-//       templateUrl: 'settings.html'
-//       // controller: 'HomeCtrl'
-//     })
-//     .otherwise({
-//       redirectTo: '/'
-//     });
-// })
-
 .controller('SignUp', function($scope ,$location){
   $scope.signup = function(){
     console.log("Hello");
@@ -173,19 +117,6 @@ angular.module('starter', ['ionic'])
 	};
 })
 
-
-// .controller('welcome',[$scope, $location, function($scope, $location){
-//   console.log("I'm in now!");
-// }]);
-
-
-//var books = new Firebase('https://se-books.firebaseio.com/books/0');
-
-// app.controller('MyController', function($scope){
-//   $scope.user = {
-//     'firstname':"Maya"
-//   }
-// });
 var usersRef = new Firebase("https://spoken-everywhere.firebaseio.com/users");
 var ref = new Firebase("https://spoken-everywhere.firebaseio.com/");
 
