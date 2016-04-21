@@ -1,4 +1,4 @@
-<!-- <script src="js/app.js"></script> -->
+<script src="js/app.js"></script>
 <ion-view ng-app = "myApp">
   <ion-header-bar class="bar-stable bar-royal">
     <figure>
@@ -6,8 +6,8 @@
     </figure>
   </ion-header-bar>
   <br><br><br><br><br>
-  <div align = "middle">
-    <h2 class="header">{{"Welcome, " +  user.firstname}}</h2>
+  <div align = "middle" ng-controller="UserDetails">
+    <h2 class="header">{{"Welcome, " +  clientFirstname}}</h2>
     <p> Wonderful to see you here...</p>
   </div>
   <br>

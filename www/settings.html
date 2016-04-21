@@ -4,11 +4,11 @@
       <img id = "headImg" src = "img/LogoHead.png">
     </figure>
   </ion-header-bar>
-      <div class="item">
+      <div class="item" ng-controller="UserDetails">
         <br><br><br><br>
         <h1 class = "headers" align = "center">We know you as...</h1>
-        <h2>Maya Afshar</h2>
-        <p>Age: 18</p>
+        <h2>{{clientFirstname+" "+clientSurname}}</h2>
+        <p>{{"Age: "+clientAge}}</p>
         <p>
           Email: zcabmaf@ucl.ac.uk <em><a class="header" href="#"></a></em>
         </p>

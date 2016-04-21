@@ -3,6 +3,10 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
+var firstname;
+var surname;
+var age;
+var books = [];
 
 var app = angular.module('myApp',['ionic']).config(['$controllerProvider', function($controllerProvider) {
   $controllerProvider.allowGlobals();
@@ -55,11 +59,13 @@ angular.module('starter', ['ionic'])
   })
   .state('mainhome', {
     url: '/mainhome',
-    templateUrl: 'mainhome.html'
+    templateUrl: 'mainhome.html',
+    controller: 'UserDetails'
   })
   .state('settings', {
     url: '/settings',
-    templateUrl: 'settings.html'
+    templateUrl: 'settings.html',
+    controller: 'UserDetails'
   })
   $urlRouterProvider.otherwise('/home');
 })
@@ -110,11 +116,37 @@ angular.module('starter', ['ionic'])
       if (error) {
         console.log("Login Failed!", error);
       } else {
-        console.log("Authenticated successfully with payload:", authData);
+        // console.log("Authenticated successfully with payload:", authData);
+        var user = new Firebase("https://spoken-everywhere.firebaseio.com/users/" + authData.uid);
+        //console.log("https://spoken-everywhere.firebaseio.com/users/" + authData.uid);
+        user.child("firstname").on("value", function(snapshot) {
+          console.log(snapshot.val());
+          firstname = snapshot.val();
+        }, function (errorObject) {
+          console.log("The read failed: " + errorObject.code);
+        });
+        user.child("surname").on("value", function(snapshot) {
+          console.log(snapshot.val());
+          surname = snapshot.val();
+        }, function (errorObject) {
+          console.log("The read failed: " + errorObject.code);
+        });
+        user.child("age").on("value", function(snapshot) {
+          console.log(snapshot.val());
+          age = snapshot.val();
+        }, function (errorObject) {
+          console.log("The read failed: " + errorObject.code);
+        });
         $location.path("/mainhome");
       }
     });
 	};
+})
+
+.controller('UserDetails', function($scope){
+  $scope.clientFirstname = firstname;
+  $scope.clientSurname = surname;
+  $scope.clientAge = age;
 })
 
 var usersRef = new Firebase("https://spoken-everywhere.firebaseio.com/users");
