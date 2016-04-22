@@ -74,9 +74,9 @@ $(document).ready(function(){
           function readOut()
           {
             var bookmarkStringer = bookmark.toString();
-            var soundURL = "GreatExpectation".concat(bookmarkStringer,".mp3");
+            var soundURL = "sound/Sample Book mp3/GreatExpectation".concat(bookmarkStringer,".mp3");
             console.log(soundURL);
-            console.log(bookmark);
+            console.log(book);
             var sound = new Howl({
               urls: [soundURL, 'sound.ogg']
             }).play();
