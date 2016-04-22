@@ -12,7 +12,7 @@ var app = angular.module('myApp',['ionic']).config(['$controllerProvider', funct
   $controllerProvider.allowGlobals();
 }]);
 
-angular.module('starter', ['ionic'])
+angular.module('starter', ['ionic', 'ngCordova'])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -255,3 +255,18 @@ var ref = new Firebase("https://spoken-everywhere.firebaseio.com/");
   //   });
   // });
   //});
+
+  example.controller("ExampleController", function($scope, $ionicLoading, $cordovaMedia) {
+    $scope.play = function(src) {
+      var media = new Media(src, null, null, mediaStatusCallback);
+      $cordovaMedia.play(media);
+    }
+    var mediaStatusCallback = function(status) {
+      if (status == Media.MEDIA_STARTING) {
+        $ionicLoading.show({template: 'Loading ...'});
+      }
+      else {
+        $ionicLoading.hide();
+      }
+    }
+  });
