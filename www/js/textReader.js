@@ -43,58 +43,74 @@ function Sound(source,volume,loop)
 }
 
 var mainTextArray;
-var booksRef = new Firebase("https://se-books.firebaseio.com/books/");
-var currentBookRef = booksRef.child("0/Great%20Expectations/");
+var bookRef = new Firebase("https://se-books.firebaseio.com/books/0/Great%20Expectations/");
 
 $(document).ready(function(){
     var sentence = [];
     console.log(bookmark);
-    for (var i = 0; i < 60; i++) {
+    bookmark = bookmark + 1;
+    for (var i = 1; i < 60; i++) {
       var stringHelper = i.toString();
-      console.log(stringHelper.concat("/text"));
-      currentBookRef.child(stringHelper.concat("/text")).on("value", function(snapshot) {
-        console.log(snapshot.val());
+      bookRef.child(stringHelper.concat("/text")).on("value", function(snapshot) {
         sentence[i] = snapshot.val();
+        console.log(sentence[i]);
+        $("#mainTextBook").append("<span id=\"".concat(stringHelper,"\">",sentence[i],"</span>"));
       }, function (errorObject) {
         console.log("The read failed: " + errorObject.code);
       });
       // console.log(sentence);
       // var finalHTML = "<span id=".concat();
     }
-    var textString = $("#mainTextBook").text();
-    var sentenceTokens = textString.split(".");
+
+    // var sentenceTokens = textString.split(".");
 
     $("#playButtonInText").click(function(){
       if ($("#playButtonInText").hasClass("ion-stop")) {
         $("#playButtonInText").attr("class", "button icon ion-play");
-        audio.play();
       }
       else {
           $("#playButtonInText").attr("class", "button icon ion-stop");
-          audio.stop();
+          //play
+          function readOut()
+          {
+            var bookmarkStringer = bookmark.toString();
+            var soundURL = "GreatExpectation".concat(bookmarkStringer,".mp3");
+            console.log(soundURL);
+            console.log(bookmark);
+            var sound = new Howl({
+              urls: [soundURL, 'sound.ogg']
+            }).play();
+            sound.onend(function(){
+              bookmark = bookmark+1;
+              if (bookmark == 60) {
+                bookmark = 1;
+              }
+            });
+            readOut();
+          }
       }
     });
 
-    setInterval(function(){
-      // if ($("#playButtonInText").hasClass("ion-stop")) {
-      //   console.log("hello");
-      //   var foo = new Sound("../sound/VivaLaVida.mp3",80,true);
-      //   foo.start();
-      // }
-      //
-      if ($("#playButtonInText").hasClass("ion-stop")) {
-        var yourstring = sentenceTokens[bookmark];
-        if (sentenceTokens[bookmark].length > 3) {
-          $('p:contains('+yourstring+')', document.body).each(function(){
-            console.log(bookmark);
-            $(this).html($(this).html().replace(
-              new RegExp(yourstring, 'g'), '<span style=\"background-color: #b5a0d6\">'+ yourstring +'</span>'
-            ));
-          });
-        }
-        bookmark = bookmark+1;
-      }
-    },2000);
+    // setInterval(function(){
+    //   // if ($("#playButtonInText").hasClass("ion-stop")) {
+    //   //   console.log("hello");
+    //   //   var foo = new Sound("../sound/VivaLaVida.mp3",80,true);
+    //   //   foo.start();
+    //   // }
+    //   //
+    //   if ($("#playButtonInText").hasClass("ion-stop")) {
+    //     var yourstring = sentenceTokens[bookmark];
+    //     if (sentenceTokens[bookmark].length > 3) {
+    //       $('p:contains('+yourstring+')', document.body).each(function(){
+    //         console.log(bookmark);
+    //         $(this).html($(this).html().replace(
+    //           new RegExp(yourstring, 'g'), '<span style=\"background-color: #b5a0d6\">'+ yourstring +'</span>'
+    //         ));
+    //       });
+    //     }
+    //     bookmark = bookmark+1;
+    //   }
+    // },2000);
 
 
 });
