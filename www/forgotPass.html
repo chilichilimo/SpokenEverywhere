@@ -1,0 +1,25 @@
+<ion-view>
+  <ion-header-bar class="bar-stable bar-royal">
+    <button class="button button-icon icon ion-chevron-left button-clear" ui-sref="settings"></button>
+    <figure>
+      <img id = "headImg" src = "img/LogoHead.png">
+    </figure>
+    <button class="button button-clear button-royal">Edit</button>
+  </ion-header-bar>
+      <div class="item" ng-controller="LoginCtrl">
+        <br><br><br><br>
+        <div class="list">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Email</span>
+            <input id="newFirstName" type="text" placeholder="John@smith.com" ng-model="emailForgotPass">
+          </label>
+        </div>
+        <br><br><br>
+        <div align="middle" ng-controller="LoginCtrl">
+          <button id="loginButton2" class="button button-royal" align = "middle" ng-click="forgotPass()">
+            Email Me the Password
+          </button>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      </div>
+</ion-view>

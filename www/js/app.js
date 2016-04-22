@@ -67,6 +67,16 @@ angular.module('starter', ['ionic'])
     templateUrl: 'settings.html',
     controller: 'UserDetails'
   })
+  .state('changeDetails', {
+    url: '/changeDetails',
+    templateUrl: 'changeDetails.html',
+    controller: 'UserDetails'
+  })
+  .state('forgotPass', {
+    url: '/forgotPass',
+    templateUrl: 'forgotPass.html',
+    controller: 'LoginCtrl'
+  })
   $urlRouterProvider.otherwise('/home');
 })
 
@@ -114,7 +124,7 @@ angular.module('starter', ['ionic'])
       password : givenPassword
     }, function(error, authData) {
       if (error) {
-        console.log("Login Failed!", error);
+        alert("Login Failed!", error);
       } else {
         // console.log("Authenticated successfully with payload:", authData);
         var user = new Firebase("https://spoken-everywhere.firebaseio.com/users/" + authData.uid);
@@ -141,12 +151,45 @@ angular.module('starter', ['ionic'])
       }
     });
 	};
+  $scope.forgotPass = function(){
+    var emailForgot = $scope.emailForgotPass;
+    ref.resetPassword({
+      email : emailForgot
+    }, function(error) {
+      if (error === null) {
+        alert("Password reset email sent successfully");
+      } else {
+        alert("Error sending password reset email:", error);
+      }
+    });
+  }
 })
 
-.controller('UserDetails', function($scope){
+.controller('UserDetails', function($scope, $location){
   $scope.clientFirstname = firstname;
   $scope.clientSurname = surname;
   $scope.clientAge = age;
+  $scope.changePass = function(){
+    ref.changePassword({
+      email       : $scope.emailChangePass,
+      oldPassword : $scope.oldPass,
+      newPassword : $scope.newPass
+    }, function(error) {
+      if (error === null) {
+        alert("Password changed successfully");
+      } else {
+        alert("Error changing password:", error);
+      }
+    });
+  }
+  $scope.logout = function(){
+    ref.unauth();
+    firstname = "";
+    lastname = "";
+    age = "";
+    alert("You Logged out");
+    $location.path("/home");
+  }
 })
 
 var usersRef = new Firebase("https://spoken-everywhere.firebaseio.com/users");

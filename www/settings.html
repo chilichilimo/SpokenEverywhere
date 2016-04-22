@@ -10,10 +10,7 @@
         <h2>{{clientFirstname+" "+clientSurname}}</h2>
         <p>{{"Age: "+clientAge}}</p>
         <p>
-          Email: zcabmaf@ucl.ac.uk <em><a class="header" href="#"></a></em>
-        </p>
-        <p>
-          <em><a class="header" href="#">want to change your password?</a></em>
+          <em><a class="header" ui-sref="changeDetails">want to change your password?</a></em>
         </p>
         <br><br>
       </div>
@@ -38,8 +35,9 @@
       </label>
       </li>
     </ul>
-
-    <button id = "logout" class = "icon ion-log-out button button-clear ">Logout</button>
+    <div ng-controller="UserDetails">
+        <button id = "logout" class = "icon ion-log-out button button-clear" ng-click="logout()">Logout</button>
+    </div>
   </div>
 
   <div class="tabs tabs-icon-top tabs-royal">
