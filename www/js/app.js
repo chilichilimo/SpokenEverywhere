@@ -6,7 +6,7 @@
 var firstname;
 var surname;
 var age;
-var books = [];
+var bookmark;
 
 var app = angular.module('myApp',['ionic']).config(['$controllerProvider', function($controllerProvider) {
   $controllerProvider.allowGlobals();
@@ -105,7 +105,8 @@ angular.module('starter', ['ionic'])
           newUserRef.set({
             firstname: signupFirstName,
             surname: signupLastName,
-            age: signupAge
+            age: signupAge,
+            bookmark: 0
           });
         }
         //$(location).attr('href', 'welcome.html');
@@ -147,6 +148,12 @@ angular.module('starter', ['ionic'])
         }, function (errorObject) {
           console.log("The read failed: " + errorObject.code);
         });
+        user.child("bookmark").on("value", function(snapshot) {
+          console.log(snapshot.val());
+          bookmark = snapshot.val();
+        }, function (errorObject) {
+          console.log("The read failed: " + errorObject.code);
+        });
         $location.path("/mainhome");
       }
     });
@@ -184,9 +191,6 @@ angular.module('starter', ['ionic'])
   }
   $scope.logout = function(){
     ref.unauth();
-    firstname = "";
-    lastname = "";
-    age = "";
     alert("You Logged out");
     $location.path("/home");
   }

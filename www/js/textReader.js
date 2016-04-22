@@ -43,11 +43,24 @@ function Sound(source,volume,loop)
 }
 
 var mainTextArray;
-var bookmark = 0;
-var audio = new Audio('sound/VivaLaVida.mp3');
+var booksRef = new Firebase("https://se-books.firebaseio.com/books/");
+var currentBookRef = booksRef.child("0/Great%20Expectations/");
 
 $(document).ready(function(){
-
+    var sentence = [];
+    console.log(bookmark);
+    for (var i = 0; i < 60; i++) {
+      var stringHelper = i.toString();
+      console.log(stringHelper.concat("/text"));
+      currentBookRef.child(stringHelper.concat("/text")).on("value", function(snapshot) {
+        console.log(snapshot.val());
+        sentence[i] = snapshot.val();
+      }, function (errorObject) {
+        console.log("The read failed: " + errorObject.code);
+      });
+      // console.log(sentence);
+      // var finalHTML = "<span id=".concat();
+    }
     var textString = $("#mainTextBook").text();
     var sentenceTokens = textString.split(".");
 
