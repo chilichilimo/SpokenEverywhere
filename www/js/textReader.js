@@ -68,7 +68,7 @@ $(document).ready(function(){
         help = help+1;
         //console.log(sentence[i]);
         //console.log(help);
-        $("#mainTextBook").append("<span id=\"".concat(help,"\">",sentence[i],".</span>"));
+        $("#mainTextBook").append("<span onClick=\"foo(this)\" id=\"".concat(help,"\">",sentence[i],".</span>"));
       }, function (errorObject) {
         console.log("The read failed: " + errorObject.code);
       });

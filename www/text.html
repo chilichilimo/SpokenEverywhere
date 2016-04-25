@@ -116,6 +116,11 @@ function playAudio(){
 function pauseAudio(){
     speech.pause();
 }
+function foo(item){
+  console.log(item.id);
+  bookmark = parseInt(item.id);
+  user.update({ bookmark: bookmark});
+}
 </script>
 </body>
 </html>

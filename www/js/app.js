@@ -207,7 +207,7 @@ angular.module('starter', ['ionic'])
     // console.log(document.querySelectorAll("span"));
 
     var hello = document.getElementById("mainTextBook");
-    console.log(hello);
+    //console.log(hello);
     angular.element(document.getElementById("mainTextBook")).css('font-size', fontSize + 'px');
   }
 });
