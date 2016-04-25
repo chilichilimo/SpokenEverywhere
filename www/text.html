@@ -2,7 +2,7 @@
 <head>
   <script src="lib/jQuery/jquery-2.2.3.min.js"></script>
   <script type="text/javascript" src="js/textReader.js"></script>
-  <script type="text/javascript" src="node_modules/ivona-node/example/example.js"></script>
+  <!-- <script type="text/javascript" src="node_modules/ivona-node/example/example.js"></script> -->
   <!-- <script type="text/javascript" src="node_modules/ivona-node/src/main.js"></script>
   <script type="text/javascript" src="node_modules/ivona-node/src/proxy.js"></script> -->
 </head>
@@ -16,18 +16,17 @@
   </ion-header-bar>
   <div class="bar bar-subheader">
     <div class="button-bar">
-      <a id="playButtonInText" class="button icon ion-play"></a>
-      <a class="button icon ion-ios-download"></a>
+      <a type="button" id="playButtonInText" class="button icon ion-play" onclick="playAudio()"></a>
+      <a type="button" id="playButtonInText" class="button icon ion-pause" onclick="pauseAudio()"></a>
     </div>
   </div>
-  <audio src="sound/GreatExpectations1.mp3">
-    hello
-  </audio>
   <br><br><br><br>
   <div class="list" style="height=30px">
     <ion-scroll zooming="true" direction="y" style="height: 500px">
       <div class="item item-body">
         <h4 class="header">Author: Charles Dickens</h4>
+        <div id="audioSection">
+        </div>
         <p id="mainTextBook" style="text-align: justify">
 
         </p>
@@ -63,5 +62,61 @@
 </div>
   </div>
 </ion-view>
+<script>
+// var speechSource = document.getElementsByTagName("source");
+// var speech = document.getElementById("speech1");
+// function playAudio() {
+//     if (bookmark != 40) {
+//       var temp = "speech".concat(bookmark);
+//       console.log(temp);
+//       speech = document.getElementById(temp);
+//       console.log(speech);
+//       //speech = document.getElementById("speech");
+//       //console.log(speech.innerHTML);
+//       //speech.innerHTML = "<source id=\"speechSource\" src=\"js/sound/SampleBookmp3/GreatExpectations".concat(bookmarkStringer,".mp3"," type=\"audio/mpeg\">");
+//       speech.play();
+//       bookmark = bookmark + 1;
+//     }
+//   //console.log(bookmark);
+//   //var soundURL = "js/sound/SampleBookmp3/GreatExpectations".concat(bookmarkStringer,".mp3");
+//   //var temp = "<source id=\"speechSource\" src=\"js/sound/SampleBookmp3/GreatExpectations".concat(bookmarkStringer,".mp3"," type=\"audio/mpeg\">");
+//   //console.log(temp);
+//   //speech.innerHTML = temp;
+// }
+// speech.onended = playAudio();
+//
+// function pauseAudio() {
+//     speech.pause();
+// }
+function changeBookmark(){
+  
+}
+
+var speech;
+var temp;
+var workingSpan;
+function playAudio(){
+  temp = "speech".concat(bookmark);
+  //console.log(temp);
+  speech = document.getElementById(temp);
+  workingSpan = document.getElementById(bookmark.toString());
+  workingSpan.style.backgroundColor = "#b5a0d6";
+  //console.log(speech);
+  //speech = document.getElementById("speech");
+  //console.log(speech.innerHTML);
+  //speech.innerHTML = "<source id=\"speechSource\" src=\"js/sound/SampleBookmp3/GreatExpectations".concat(bookmarkStringer,".mp3"," type=\"audio/mpeg\">");
+  speech.play();
+  speech.onended = function() {
+    workingSpan.style.backgroundColor = "white";
+    bookmark = bookmark+1;
+    user.update({ bookmark: bookmark});
+    playAudio();
+  }
+  //bookmark = bookmark + 1;
+}
+function pauseAudio(){
+    speech.pause();
+}
+</script>
 </body>
 </html>

@@ -7,6 +7,7 @@ var firstname;
 var surname;
 var age;
 var bookmark;
+var user;
 
 var app = angular.module('myApp',['ionic']).config(['$controllerProvider', function($controllerProvider) {
   $controllerProvider.allowGlobals();
@@ -77,6 +78,10 @@ angular.module('starter', ['ionic'])
     templateUrl: 'forgotPass.html',
     controller: 'LoginCtrl'
   })
+  .state('searchResult', {
+    url: '/searchResult',
+    templateUrl: 'searchResult.html'
+  })
   $urlRouterProvider.otherwise('/home');
 })
 
@@ -106,7 +111,7 @@ angular.module('starter', ['ionic'])
             firstname: signupFirstName,
             surname: signupLastName,
             age: signupAge,
-            bookmark: 0
+            bookmark: 1
           });
         }
         //$(location).attr('href', 'welcome.html');
@@ -128,7 +133,7 @@ angular.module('starter', ['ionic'])
         alert("Login Failed!", error);
       } else {
         // console.log("Authenticated successfully with payload:", authData);
-        var user = new Firebase("https://spoken-everywhere.firebaseio.com/users/" + authData.uid);
+        user = new Firebase("https://spoken-everywhere.firebaseio.com/users/" + authData.uid);
         //console.log("https://spoken-everywhere.firebaseio.com/users/" + authData.uid);
         user.child("firstname").on("value", function(snapshot) {
           console.log(snapshot.val());
