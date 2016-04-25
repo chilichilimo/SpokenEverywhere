@@ -183,6 +183,20 @@ form {
 
 }
 
+li {
+	display:inline;
+}
+
+#mainBookText {
+	font-size: 12px;
+}
+
+.book {
+	width: 100px;
+	padding-bottom: 10px;
+	padding-top: 0%;
+}
+
 #header {
 	font-family: "Avenir";
 	color: #8d62c5;
