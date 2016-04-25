@@ -6,11 +6,11 @@
   </ion-header-bar>
       <div class="item" ng-controller="UserDetails">
         <br><br><br><br>
-        <h1 class = "headers" align = "center">We know you as...</h1>
-        <h2>{{clientFirstname+" "+clientSurname}}</h2>
-        <p>{{"Age: "+clientAge}}</p>
+        <h1 id="header">Account</h1>
+        <h2>{{"Name: "+clientFirstname+" "+clientSurname}}</h2>
+        <h2>{{"Age: "+clientAge}}</h2>
         <p>
-          <em><a class="header" ui-sref="changeDetails">want to change your password?</a></em>
+          <em><a class="header" ui-sref="changeDetails">Change your password</a></em>
         </p>
         <br><br>
       </div>
@@ -24,17 +24,6 @@
       </div>
     </form>
 
-    <ul class="list">
-      <li id = "Bluetooth" class="item item-toggle">
-        Bluetooth
-      <label class="toggle toggle-royal">
-        <input type="checkbox">
-        <div class="track">
-          <div class="handle"></div>
-        </div>
-      </label>
-      </li>
-    </ul>
     <div ng-controller="UserDetails">
         <button id = "logout" class = "icon ion-log-out button button-clear" ng-click="logout()">Logout</button>
     </div>
