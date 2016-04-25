@@ -101,6 +101,9 @@ form {
 	width: 60px;
 }
 
+.buttons {
+	padding-top: 10px;
+}
 #forgotPassButton {
 	background-color: white;
 	color: #8a6de9;
@@ -189,7 +192,7 @@ li {
 
 #mainTextBook {
 	text-align: justify;
-	
+
 }
 
 
