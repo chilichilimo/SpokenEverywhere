@@ -6,7 +6,8 @@
 var firstname;
 var surname;
 var age;
-var books = [];
+var bookmark;
+var user;
 
 var app = angular.module('myApp',['ionic']).config(['$controllerProvider', function($controllerProvider) {
   $controllerProvider.allowGlobals();
@@ -77,6 +78,10 @@ angular.module('starter', ['ionic'])
     templateUrl: 'forgotPass.html',
     controller: 'LoginCtrl'
   })
+  .state('searchResult', {
+    url: '/searchResult',
+    templateUrl: 'searchResult.html'
+  })
   $urlRouterProvider.otherwise('/home');
 })
 
@@ -105,7 +110,8 @@ angular.module('starter', ['ionic'])
           newUserRef.set({
             firstname: signupFirstName,
             surname: signupLastName,
-            age: signupAge
+            age: signupAge,
+            bookmark: 1
           });
         }
         //$(location).attr('href', 'welcome.html');
@@ -127,7 +133,7 @@ angular.module('starter', ['ionic'])
         alert("Login Failed!", error);
       } else {
         // console.log("Authenticated successfully with payload:", authData);
-        var user = new Firebase("https://spoken-everywhere.firebaseio.com/users/" + authData.uid);
+        user = new Firebase("https://spoken-everywhere.firebaseio.com/users/" + authData.uid);
         //console.log("https://spoken-everywhere.firebaseio.com/users/" + authData.uid);
         user.child("firstname").on("value", function(snapshot) {
           console.log(snapshot.val());
@@ -144,6 +150,12 @@ angular.module('starter', ['ionic'])
         user.child("age").on("value", function(snapshot) {
           console.log(snapshot.val());
           age = snapshot.val();
+        }, function (errorObject) {
+          console.log("The read failed: " + errorObject.code);
+        });
+        user.child("bookmark").on("value", function(snapshot) {
+          console.log(snapshot.val());
+          bookmark = snapshot.val();
         }, function (errorObject) {
           console.log("The read failed: " + errorObject.code);
         });
@@ -184,9 +196,6 @@ angular.module('starter', ['ionic'])
   }
   $scope.logout = function(){
     ref.unauth();
-    firstname = "";
-    lastname = "";
-    age = "";
     alert("You Logged out");
     $location.path("/home");
   }

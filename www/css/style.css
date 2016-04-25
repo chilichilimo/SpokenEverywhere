@@ -94,6 +94,13 @@ form {
 	width: 100%;
 }
 
+#findButton {
+	background-color: "white";
+	color: #8a6de9;
+	font-size: 8px;
+	width: 60px;
+}
+
 #forgotPassButton {
 	background-color: white;
 	color: #8a6de9;
