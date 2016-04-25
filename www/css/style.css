@@ -73,7 +73,7 @@ form {
 	width: 80px;
 	padding: 1px 1px;
 	position: relative;
-	/*font-weight: bolder;*/
+	font-weight: bolder;
 	}
 
 	#loginButton2 {
@@ -96,7 +96,6 @@ form {
 	color: #8a6de9;
 	font-size: 8px;
 	width: 60px;
-	height: 30px;
 }
 
 #forgotPassButton {

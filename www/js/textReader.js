@@ -59,7 +59,7 @@ $(document).ready(function(){
     var audioHTMLString = [];
     console.log(bookmark);
     bookmark = bookmark + 1;
-    for (var i = 1; i < 120; i++) {
+    for (var i = 1; i < 80; i++) {
       console.log(i);
       var stringHelper = i.toString();
       var help = 1;
@@ -68,7 +68,7 @@ $(document).ready(function(){
         help = help+1;
         //console.log(sentence[i]);
         console.log(help);
-        $("#mainTextBook").append("<span onclick=\"changeBookmark()s\" id=\"".concat(help,"\">",sentence[i],".</span>"));
+        $("#mainTextBook").append("<span id=\"".concat(help,"\">",sentence[i],".</span>"));
       }, function (errorObject) {
         console.log("The read failed: " + errorObject.code);
       });
