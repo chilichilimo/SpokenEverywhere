@@ -187,9 +187,11 @@ li {
 	display:inline;
 }
 
-#mainBookText {
-	font-size: 12px;
+#mainTextBook {
+	text-align: justify;
+	
 }
+
 
 .book {
 	width: 100px;

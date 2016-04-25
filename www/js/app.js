@@ -66,7 +66,7 @@ angular.module('starter', ['ionic'])
   .state('settings', {
     url: '/settings',
     templateUrl: 'settings.html',
-    controller: 'UserDetails'
+    controller: 'FontCtrl'
   })
   .state('changeDetails', {
     url: '/changeDetails',
@@ -87,13 +87,13 @@ angular.module('starter', ['ionic'])
 
 .controller('SignUp', function($scope ,$location){
   $scope.signup = function(){
-    console.log("Hello");
+    //console.log("Hello");
       signupEmail = $scope.email;
       signupPassword = $scope.password;
       signupFirstName = $scope.firstname;
       signupLastName = $scope.lastname;
       signupAge = $scope.age;
-      console.log(signupFirstName);
+      //console.log(signupFirstName);
       usersRef.createUser({
         email: signupEmail,
         password: signupPassword
@@ -106,7 +106,7 @@ angular.module('starter', ['ionic'])
           console.log("Successfully created user account with uid:", userData.uid);
           var uid = userData.uid;
           var newUserRef = new Firebase("https://spoken-everywhere.firebaseio.com/users/" + uid);
-          console.log("https://spoken-everywhere.firebaseio.com/users/" + uid);
+          //console.log("https://spoken-everywhere.firebaseio.com/users/" + uid);
           newUserRef.set({
             firstname: signupFirstName,
             surname: signupLastName,
@@ -124,7 +124,7 @@ angular.module('starter', ['ionic'])
 	$scope.login = function() {
     var givenEmail = $scope.loginEmail;
     var givenPassword = $scope.loginPassword;
-    console.log(givenEmail);
+    //console.log(givenEmail);
     ref.authWithPassword({
       email    : givenEmail,
       password : givenPassword
@@ -136,25 +136,25 @@ angular.module('starter', ['ionic'])
         user = new Firebase("https://spoken-everywhere.firebaseio.com/users/" + authData.uid);
         //console.log("https://spoken-everywhere.firebaseio.com/users/" + authData.uid);
         user.child("firstname").on("value", function(snapshot) {
-          console.log(snapshot.val());
+          //console.log(snapshot.val());
           firstname = snapshot.val();
         }, function (errorObject) {
           console.log("The read failed: " + errorObject.code);
         });
         user.child("surname").on("value", function(snapshot) {
-          console.log(snapshot.val());
+          //console.log(snapshot.val());
           surname = snapshot.val();
         }, function (errorObject) {
           console.log("The read failed: " + errorObject.code);
         });
         user.child("age").on("value", function(snapshot) {
-          console.log(snapshot.val());
+          //console.log(snapshot.val());
           age = snapshot.val();
         }, function (errorObject) {
           console.log("The read failed: " + errorObject.code);
         });
         user.child("bookmark").on("value", function(snapshot) {
-          console.log(snapshot.val());
+          //console.log(snapshot.val());
           bookmark = snapshot.val();
         }, function (errorObject) {
           console.log("The read failed: " + errorObject.code);
@@ -200,6 +200,17 @@ angular.module('starter', ['ionic'])
     $location.path("/home");
   }
 })
+
+.controller('FontCtrl', function($scope){
+  $scope.fontSize = 10;
+  $scope.changeFontSize = function (fontSize) {
+    // console.log(document.querySelectorAll("span"));
+
+    var hello = document.getElementById("mainTextBook");
+    console.log(hello);
+    angular.element(document.getElementById("mainTextBook")).css('font-size', fontSize + 'px');
+  }
+});
 
 var usersRef = new Firebase("https://spoken-everywhere.firebaseio.com/users");
 var ref = new Firebase("https://spoken-everywhere.firebaseio.com/");

@@ -57,17 +57,17 @@ console.log("Yes it goes through here.");
 $(document).ready(function(){
     var sentence = [];
     var audioHTMLString = [];
-    console.log(bookmark);
+    //console.log(bookmark);
     bookmark = bookmark + 1;
     for (var i = 1; i < 80; i++) {
-      console.log(i);
+      //console.log(i);
       var stringHelper = i.toString();
       var help = 1;
       bookRef.child(stringHelper.concat("/text")).on("value", function(snapshot) {
         sentence[i] = snapshot.val();
         help = help+1;
         //console.log(sentence[i]);
-        console.log(help);
+        //console.log(help);
         $("#mainTextBook").append("<span id=\"".concat(help,"\">",sentence[i],".</span>"));
       }, function (errorObject) {
         console.log("The read failed: " + errorObject.code);
@@ -79,7 +79,7 @@ $(document).ready(function(){
       var bookmarkStringer = i.toString();
       audioHTMLString[i] = "<audio id=\"".concat(audioId,"\"><source id=\"",sourceId,"\" src=\"js/sound/SampleBookmp3/GreatExpectations",bookmarkStringer,".mp3\" type=","\"audio/mpeg\"","></audio>");
       //console.log(audioHTMLString);
-      console.log(audioHTMLString[i]);
+      //console.log(audioHTMLString[i]);
       $("#audioSection").append(audioHTMLString[i]);
     }
 

@@ -17,11 +17,15 @@
 
       <h1 class = "headers"> Font Size </h1>
       <form>
-      <div class="font item range range-energized">
-    	   <span class="smallA">A</span>
-    		   <input id="range" type="range" min="10" max="30">
-    			    <span class="bigA">A</span>
-      </div>
+        <div ng-controller="FontCtrl">
+          <div class="font item range range-energized">
+             <span class="smallA">A</span>
+               <input id="range" type="range" min="10" max="30" ng-model="fontSize" ng-change="changeFontSize(fontSize)">
+                
+                  <span class="bigA">A</span>
+          </div>
+        </div>
+
     </form>
 
     <div ng-controller="UserDetails">
