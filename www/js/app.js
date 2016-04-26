@@ -1,18 +1,25 @@
 // Ionic Starter App
+/**
+* @file App initialiser, declaring Angular configurations and controllers.
+* @author Maya Afshar <afshar.m.95@gmail.com>
+* @version 0.1
+*/
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
+//Global variables for keeping user's data.
 var firstname;
 var surname;
 var age;
 var bookmark;
 var user;
 
+// angular.module is a global place for creating, registering and retrieving Angular modules
+// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+// the 2nd parameter is an array of 'requires'
 var app = angular.module('myApp',['ionic']).config(['$controllerProvider', function($controllerProvider) {
   $controllerProvider.allowGlobals();
 }]);
 
+//App Starter.
 angular.module('starter', ['ionic'])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -21,9 +28,6 @@ angular.module('starter', ['ionic'])
       // for form inputs)
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
 
-      // Don't remove this line unless you know what you are doing. It stops the viewport
-      // from snapping when text inputs are focused. Ionic handles this internally for
-      // a much nicer keyboard experience.
       cordova.plugins.Keyboard.disableScroll(true);
     }
     if(window.StatusBar) {
@@ -33,6 +37,7 @@ angular.module('starter', ['ionic'])
   var usersRef = new Firebase("https://spoken-everywhere.firebaseio.com/users/");
 })
 
+//Declaration of different states of app.
 .config(function($stateProvider, $urlRouterProvider)
 {
   $stateProvider
@@ -85,9 +90,9 @@ angular.module('starter', ['ionic'])
   $urlRouterProvider.otherwise('/home');
 })
 
+//Controller for Signup.
 .controller('SignUp', function($scope ,$location){
   $scope.signup = function(){
-    //console.log("Hello");
       signupEmail = $scope.email;
       signupPassword = $scope.password;
       signupFirstName = $scope.firstname;
@@ -106,7 +111,6 @@ angular.module('starter', ['ionic'])
           console.log("Successfully created user account with uid:", userData.uid);
           var uid = userData.uid;
           var newUserRef = new Firebase("https://spoken-everywhere.firebaseio.com/users/" + uid);
-          //console.log("https://spoken-everywhere.firebaseio.com/users/" + uid);
           newUserRef.set({
             firstname: signupFirstName,
             surname: signupLastName,
@@ -114,12 +118,12 @@ angular.module('starter', ['ionic'])
             bookmark: 1
           });
         }
-        //$(location).attr('href', 'welcome.html');
       });
       $location.path("/welcome");
   }
 })
 
+//Controller for login.
 .controller('LoginCtrl', function($location, $scope) {
 	$scope.login = function() {
     var givenEmail = $scope.loginEmail;
@@ -177,6 +181,7 @@ angular.module('starter', ['ionic'])
   }
 })
 
+//Controllers for changing passwords and Loging out.
 .controller('UserDetails', function($scope, $location){
   $scope.clientFirstname = firstname;
   $scope.clientSurname = surname;
@@ -201,6 +206,7 @@ angular.module('starter', ['ionic'])
   }
 })
 
+//Controller for changing the font size.
 .controller('FontCtrl', function($scope){
   $scope.fontSize = 10;
   $scope.changeFontSize = function (fontSize) {
@@ -212,9 +218,11 @@ angular.module('starter', ['ionic'])
   }
 });
 
+//Firebase User access.
 var usersRef = new Firebase("https://spoken-everywhere.firebaseio.com/users");
 var ref = new Firebase("https://spoken-everywhere.firebaseio.com/");
 
+//Here is the previous version of signing up formation using jQuery
   //$(document).ready(function(){
   // $("#signUpFormButton").click(function(){
   //   var signupFirstName = $("#newFirstName").val();
