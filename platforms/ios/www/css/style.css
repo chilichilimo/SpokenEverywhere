@@ -1,0 +1,165 @@
+/* Empty. Add your own CSS if you like */
+.input-label {
+	font-family: avenir;
+	font-size: 18px;
+	color: #666dc0;
+}
+body {
+  cursor: url('http://ionicframework.com/img/finger.png'), auto;
+}
+img {
+	padding-top: 30%;
+	width : 300px;
+}
+figure {
+	margin-left: auto;
+	margin-right: auto;
+}
+.title {
+	font-family: avenir;
+}
+#headImg {
+	height: 40px;
+	width: 120px;
+	padding-top: 0%;
+	padding-bottom: 3px;
+}
+#logo {
+	height: 35px;
+	width: 40px;
+	padding-top: 0%;
+}
+.logo {
+	margin-left: 80%;
+}
+form {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom:5%;
+}
+
+.header{
+	font-family: "Avenir";
+	color: #8d62c5;
+}
+.headers {
+	font-family: "Avenir";
+	color: #8d62c5;
+	padding-left: 5%;
+	font-size: 20px;
+}
+.subheaders {
+	font-family: avenir;
+	color: black;
+	font-weight: bolder;
+
+}
+
+#Bluetooth {
+	height: 50px;
+	font-size: 20px;
+	border: none;
+	color: #8d62c5;
+	font-weight:500;
+	font-family: avenir;
+	width: 100%;
+	padding-left:5%;
+}
+
+#loginButton {
+	font-size: 16px;
+	color: white;
+	width: 80px;
+	padding: 1px 1px;
+	position: relative;
+	font-weight: bolder;
+	}
+
+#signUpButton {
+	color: #8a6de9;
+	font-size: 10px;
+	width: 100%;
+}
+
+#forgotPassButton {
+	background-color: white;
+	color: #8a6de9;
+	font-size: 10px;
+}
+#signUpButtonText {
+	color: #8a6de9;
+	font-size: 10px;
+}
+#signUpFormButton{
+
+	font-size: 16px;
+	color: white;
+	width: 100px;
+	position: relative;
+	font-weight: bolder;
+}
+.item {
+	padding-bottom: 0%;
+}
+#text {
+	font-family: avenir;
+	font-size: 18px;
+	width:80%;
+	padding-top: 70px;
+	font-weight: lighter;
+	color: black;
+	padding-bottom: 2%;
+}
+
+.search {
+	padding-top: 60px;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.big {
+	font-family: "Avenir";
+	color: #8d62c5;
+	font-size: 30px;
+	padding-top: 60px;
+}
+.setText {
+	padding: 10px;
+	background-color: lightgrey;
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid black;
+}
+
+#small {
+	width: 100%;
+	font-family: avenir;
+	font-size: 10px;
+	padding-top: 0%;
+}
+
+#logout {
+	font-family: "Avenir";
+	color: #8d62c5;
+	padding-left: 5%;
+	font-size: 20px;
+	font-weight: 500;
+}
+.smallA {
+	font-size: 10px;
+}
+.bigA {
+	font-size: 30px;
+}
+#playButton{
+	font-size: 12px;
+	color: "red";
+	width: 70px;
+	padding: 1px 1px;
+	position: relative;
+}
+#saveButton{
+
+}
